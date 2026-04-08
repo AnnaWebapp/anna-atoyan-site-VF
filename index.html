@@ -820,7 +820,9 @@ footer a:hover{color:var(--accent);}
     </div>
 
     <!-- Témoignages écrits — défilement horizontal -->
-    <div class="temo-scroll">
+    <div style="position:relative;">
+      <button onclick="document.querySelector('.temo-scroll').scrollBy({left:-520,behavior:'smooth'})" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;background:transparent;border:none;font-size:2rem;cursor:pointer;color:#c9a96e;">←</button>
+<div class="temo-scroll">
       <div class="temo-card">
         <p class="temo-card-quote">Depuis quelques années, j'avais une garde-robe composée de bons basiques mais l'impression de toujours mettre la même chose. Anna m'a apporté un autre regard — pour retrouver du plaisir à m'habiller chaque matin et oser des tenues qui sortaient de ma zone de confort. Je trouve mon allure plus affirmée et professionnelle, tout en étant féminine.</p>
         <div class="temo-card-author">Albane</div>
@@ -836,7 +838,9 @@ footer a:hover{color:var(--accent);}
         <div class="temo-card-author">Camille</div>
         <div class="temo-card-service">Consultation Style, Shopping</div>
       </div>
-    </div>
+    </div></div>
+<button onclick="document.querySelector('.temo-scroll').scrollBy({left:520,behavior:'smooth'})" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;background:transparent;border:none;font-size:2rem;cursor:pointer;color:#c9a96e;">→</button>
+</div>
 
     <!-- CASE STUDY — Camille -->
     <div class="temo-showcase-title" style="margin-top:56px;">Une transformation — Camille</div>
