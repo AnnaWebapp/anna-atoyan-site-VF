@@ -125,8 +125,8 @@ section{padding:100px 0;}
 .temo-sub{font-size:0.78rem;letter-spacing:0.15em;color:rgba(255,255,255,0.35);}
 
 /* Quote cards row */
-.temo-quotes{display:flex;overflow-x:auto;gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-bottom:60px;scrollbar-width:none;}
-.temo-card{background:var(--dark);padding:40px 36px;min-width:420px;flex-shrink:0;}
+.temo-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-bottom:60px;}
+.temo-card{background:var(--dark);padding:40px 36px;}
 .temo-card-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;line-height:1.85;color:rgba(255,255,255,0.88);margin-bottom:24px;position:relative;padding-top:24px;font-weight:400;}
 .temo-card-quote::before{content:'“';font-size:3rem;line-height:0;color:var(--accent);position:absolute;top:0;left:0;font-style:normal;}
 .temo-card-author{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
@@ -832,9 +832,9 @@ footer a:hover{color:var(--accent);}
         <div class="temo-card-service">Tri Dressing</div>
       </div>
       <div class="temo-card">
-        <p class="temo-card-quote">Un énorme merci à Anna ! Tri de dressing + session shopping = une vraie révélation 🤍 Moi qui suis très mince, je n’aurais jamais pensé que les pantalons larges pouvaient autant me mettre en valeur ! Tu es à l’écoute, tu mets en confiance et tu sais vraiment révéler le potentiel qu’on a déjà dans son dressing 🙌 Résultat : plus de confiance en moi et un super moment partagé 💛 Je recommande à 100% ! ✨</p>
+        <p class="temo-card-quote">Un immense merci à Anna ! Tu es venue trier mon dressing et ce fut une vraie révélation. Tu m'as appris à comprendre ma morphologie, à oser des pièces auxquelles je n'aurais jamais pensé. Grâce à toi, j'ai repris confiance en moi. Et notre séance shopping ensuite… un pur bonheur ! Merci pour ton professionnalisme et ta bienveillance. Une expérience que je recommande les yeux fermés.</p>
         <div class="temo-card-author">Camille</div>
-        <div class="temo-card-service">Consultation Style</div>
+        <div class="temo-card-service">Consultation Style, Shopping</div>
       </div>
     </div>
 
