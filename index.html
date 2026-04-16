@@ -850,8 +850,8 @@ footer a:hover{color:var(--accent);}
 
     <!-- Témoignages écrits — défilement horizontal -->
         <div class="temo-scroll-wrapper">
-    <button class="temo-arrow temo-arrow-left" aria-label="Précédent" onclick="scrollTemo(-1)">←</button>
-    <button class="temo-arrow temo-arrow-right" aria-label="Suivant" onclick="scrollTemo(1)">→</button>
+    <button class="temo-arrow temo-arrow-left" aria-label="Précédent" onclick="scrollRow('temoScroll',-1)">←</button>
+    <button class="temo-arrow temo-arrow-right" aria-label="Suivant" onclick="scrollRow('temoScroll',1)">→</button>
     <div class="temo-scroll" id="temoScroll">
       <div class="temo-card">
         <p class="temo-card-quote">Depuis quelques années, j'avais une garde-robe composée de bons basiques mais l'impression de toujours mettre la même chose. Anna m'a apporté un autre regard — pour retrouver du plaisir à m'habiller chaque matin et oser des tenues qui sortaient de ma zone de confort. Je trouve mon allure plus affirmée et professionnelle, tout en étant féminine.</p>
@@ -957,11 +957,12 @@ footer a:hover{color:var(--accent);}
 </footer>
 
 <script>
-  function scrollTemo(direction){
-  const scroll = document.getElementById('temoScroll');
-  const card = scroll.querySelector('.temo-card');
-  const cardWidth = card.offsetWidth + 2;
-  scroll.scrollBy({left: direction * cardWidth, behavior: 'smooth'});
+  function scrollRow(scrollId, direction){
+  const scroll = document.getElementById(scrollId);
+  const child = scroll.firstElementChild;
+  if (!child) return;
+  const step = child.offsetWidth + 2;
+  scroll.scrollBy({left: direction * step, behavior: 'smooth'});
 }
 function openMenu(){
   document.getElementById('mobileMenu').classList.add('open');
