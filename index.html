@@ -593,6 +593,35 @@ footer a:hover{color:var(--accent);}
   margin-bottom:0;
 }
 .temo-scroll::-webkit-scrollbar{display:none;}
+
+/* ── TEMO ARROWS ── */
+.temo-scroll-wrapper{position:relative;}
+.temo-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:var(--cream);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  transition:all 0.25s;
+  font-size:1.2rem;
+}
+.temo-arrow:hover{background:var(--accent);border-color:var(--accent);color:var(--dark);}
+.temo-arrow-left{left:-24px;}
+.temo-arrow-right{right:-24px;}
+.temo-arrow:disabled{opacity:0.3;cursor:not-allowed;}
+@media(max-width:900px){
+  .temo-arrow-left{left:8px;}
+  .temo-arrow-right{right:8px;}
+}
 .temo-scroll .temo-card{
   flex:0 0 380px;
   scroll-snap-align:start;
@@ -820,7 +849,10 @@ footer a:hover{color:var(--accent);}
     </div>
 
     <!-- Témoignages écrits — défilement horizontal -->
-    <div class="temo-scroll">
+        <div class="temo-scroll-wrapper">
+    <button class="temo-arrow temo-arrow-left" aria-label="Précédent" onclick="scrollTemo(-1)">←</button>
+    <button class="temo-arrow temo-arrow-right" aria-label="Suivant" onclick="scrollTemo(1)">→</button>
+    <div class="temo-scroll" id="temoScroll">
       <div class="temo-card">
         <p class="temo-card-quote">Depuis quelques années, j'avais une garde-robe composée de bons basiques mais l'impression de toujours mettre la même chose. Anna m'a apporté un autre regard — pour retrouver du plaisir à m'habiller chaque matin et oser des tenues qui sortaient de ma zone de confort. Je trouve mon allure plus affirmée et professionnelle, tout en étant féminine.</p>
         <div class="temo-card-author">Albane</div>
@@ -836,6 +868,12 @@ footer a:hover{color:var(--accent);}
         <div class="temo-card-author">Camille</div>
         <div class="temo-card-service">Consultation Style</div>
       </div>
+          <div class="temo-card">
+        <p class="temo-card-quote">J'ai récemment consulté Anna pour ses services de personal shopper et j'ai été très satisfaite. Anna est douce et très professionnelle, elle a su de suite comprendre ma demande et y répondre malgré la particularité. Elle a été force de propositions et je suis ressortie de cet échange avec les clés nécessaires pour reconstruire mes looks.</p>
+        <div class="temo-card-author">Marion</div>
+        <div class="temo-card-service">Personal Shopper</div>
+      </div>
+    </div>
     </div>
 
     <!-- CASE STUDY — Camille -->
@@ -919,6 +957,12 @@ footer a:hover{color:var(--accent);}
 </footer>
 
 <script>
+  function scrollTemo(direction){
+  const scroll = document.getElementById('temoScroll');
+  const card = scroll.querySelector('.temo-card');
+  const cardWidth = card.offsetWidth + 2;
+  scroll.scrollBy({left: direction * cardWidth, behavior: 'smooth'});
+}
 function openMenu(){
   document.getElementById('mobileMenu').classList.add('open');
   document.body.style.overflow='hidden';
