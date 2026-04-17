@@ -1,0 +1,11 @@
+# robots.txt pour anna-atoyan.com
+# Autorise tous les robots à explorer l'ensemble du site
+
+User-agent: *
+Allow: /
+
+# Bloque l'indexation des pages légales (optionnel mais recommandé)
+Disallow: /cgv.html
+
+# Emplacement du sitemap
+Sitemap: https://anna-atoyan.com/sitemap.xml
