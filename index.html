@@ -1138,23 +1138,28 @@ footer a:hover{color:var(--accent);}
   <div class="container">
     <h2>Discutons de vos envies</h2>
     <p>Écrivez-moi pour réserver une séance ou pour toute question.</p>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-group"><label for="prenom">Prénom</label><input type="text" id="prenom" name="prenom" required placeholder="Votre prénom"></div>
-      <div class="form-group"><label for="nom">Nom</label><input type="text" id="nom" name="nom" required placeholder="Votre nom"></div>
-      <div class="form-group full"><label for="email">Email</label><input type="email" id="email" name="email" required placeholder="votre@email.com"></div>
-      <div class="form-group full"><label for="sujet">Sujet de la demande</label>
-        <select id="sujet" name="sujet" required>
-          <option value="" disabled selected>Choisissez une prestation</option>
-          <option>Consultation Express — 100€</option><option>Consultation Style — 250€</option>
-          <option>Tri Dressing — 390€</option><option>Shopping Accompagné — 490€</option>
-          <option>Pack Transformation — 1 000€</option><option>Projet professionnel sur mesure</option>
-          <option>Autre question</option>
-        </select>
-      </div>
-      <div class="form-group full"><label for="message">Message (optionnel)</label><textarea id="message" name="message" placeholder="Précisez votre demande, vos disponibilités..."></textarea></div>
-      <button type="submit" class="form-submit">Envoyer la demande →</button>
-      
-    </form>
+   <form id="contact-form" class="contact-form">
+  <input type="hidden" name="access_key" value="c7b12dad-1a63-4e14-a5eb-43c7e897fc71">
+  <input type="hidden" name="subject" value="Nouvelle demande – Site Anna Atoyan">
+  <input type="hidden" name="from_name" value="Site Anna Atoyan">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form-group"><label for="prenom">Prénom</label><input type="text" id="prenom" name="prenom" required placeholder="Votre prénom"></div>
+  <div class="form-group"><label for="nom">Nom</label><input type="text" id="nom" name="nom" required placeholder="Votre nom"></div>
+  <div class="form-group full"><label for="email">Email</label><input type="email" id="email" name="email" required placeholder="votre@email.com"></div>
+  <div class="form-group full"><label for="sujet">Sujet de la demande</label>
+    <select id="sujet" name="sujet" required>
+      <option value="" disabled selected>Choisissez une prestation</option>
+      <option>Consultation Express — 100€</option><option>Consultation Style — 250€</option>
+      <option>Tri Dressing — 390€</option><option>Shopping Accompagné — 490€</option>
+      <option>Pack Transformation — 1 000€</option><option>Projet professionnel sur mesure</option>
+      <option>Autre question</option>
+    </select>
+  </div>
+  <div class="form-group full"><label for="message">Message (optionnel)</label><textarea id="message" name="message" placeholder="Précisez votre demande, vos disponibilités..."></textarea></div>
+  <button type="submit" class="form-submit">Envoyer la demande →</button>
+  <div id="form-result" style="margin-top:16px; padding:12px 16px; display:none; font-size:14px; border-radius:2px;"></div>
+</form>
   </div>
 </section>
 
@@ -1189,18 +1194,47 @@ window.addEventListener('scroll', function(){
   var n = document.getElementById('nav');
   if(n) n.classList.toggle('scrolled', window.scrollY > 60);
 });
-function handleSubmit(e){
-  e.preventDefault();
-  var f = e.target;
-  var subject = encodeURIComponent(f.sujet.value);
-  var body = encodeURIComponent(
-    'Prénom : ' + f.prenom.value + '\n' +
-    'Nom : ' + f.nom.value + '\n' +
-    'Sujet : ' + f.sujet.value + '\n\n' +
-    (f.message.value || '')
-  );
-  window.location.href = 'mailto:<a href="#" class="js-email"></a>?subject=' + subject + '&body=' + body;
-}
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var resultDiv = document.getElementById('form-result');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      resultDiv.style.display = 'block';
+      if(data.success){
+        resultDiv.style.background = '#f5f0e8';
+        resultDiv.style.color = '#1a1714';
+        resultDiv.style.borderLeft = '3px solid #c9a96e';
+        resultDiv.innerHTML = '✓ Merci, votre demande a bien été envoyée. Anna vous répondra dans les meilleurs délais.';
+        form.reset();
+      } else {
+        resultDiv.style.background = '#fff0f0';
+        resultDiv.style.color = '#c00';
+        resultDiv.innerHTML = '⚠ Une erreur est survenue. Merci de réessayer ou d\'écrire directement à styledbyanna@gmail.com.';
+      }
+    })
+    .catch(function(){
+      resultDiv.style.display = 'block';
+      resultDiv.style.background = '#fff0f0';
+      resultDiv.style.color = '#c00';
+      resultDiv.innerHTML = '⚠ Erreur réseau. Merci de réessayer.';
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    });
+  });
+});
 // Render email links
 (function(){
   var u='styledbyanna', d='gmail.com';
