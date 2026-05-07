@@ -239,10 +239,37 @@
     </a>
   </div>
 
-  <a href="anna-atoyan.vcf" class="btn">
+  <a href="#" id="vcardBtn" class="btn">
     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     Ajouter à mes contacts
   </a>
+
+<script>
+  document.getElementById('vcardBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    var vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'FN:Anna Atoyan',
+      'N:Atoyan;Anna;;;',
+      'TITLE:Styliste Personnelle',
+      'TEL;TYPE=CELL:+33638289079',
+      'EMAIL:contact@anna-atoyan.com',
+      'URL:https://anna-atoyan.com',
+      'END:VCARD'
+    ].join('\r\n');
+
+    var blob = new Blob([vcard], { type: 'text/vcard' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'Anna-Atoyan.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+</script>
 </div>
 </body>
 </html>
