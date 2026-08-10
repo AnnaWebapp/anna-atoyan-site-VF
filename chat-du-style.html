@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Chat du Style — Vestiaire d'Automne 2026 · Anna Atoyan</title>
+<meta name="description" content="4 semaines avec une styliste personnelle. Un canal privé Instagram avec des conseils, sélections shopping et essayages pour construire ta garde-robe d'automne. Du 5 septembre au 2 octobre 2026.">
+<meta name="theme-color" content="#faf8f4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --cream: #f5f0e8;
+    --dark: #1a1714;
+    --accent: #c9a96e;
+    --accent-dark: #b89856;
+    --text: #333;
+    --muted: #777;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+  .container-narrow { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+
+  /* NAV */
+  nav {
+    padding: 24px 28px;
+    text-align: center;
+    border-bottom: 1px solid #f0ebe2;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav a.brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; letter-spacing: 5px; color: var(--dark);
+    text-decoration: none; font-weight: 500;
+  }
+  nav .tagline {
+    font-size: 10px; letter-spacing: 3px; color: var(--accent);
+    text-transform: uppercase; margin-top: 4px;
+  }
+  nav a.back {
+    position: absolute; left: 28px; top: 32px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+  }
+  nav a.back:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 0 120px;
+    text-align: center;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .container { position: relative; z-index: 2; }
+
+  /* HERO ANIMATION — objets qui surgissent */
+  .hero-items {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+  }
+  .hero-items img {
+    position: absolute;
+    opacity: 0;
+    filter: drop-shadow(0 8px 20px rgba(26,23,20,0.10));
+    animation: itemPop 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+               itemFloat 6s ease-in-out infinite;
+  }
+  @keyframes itemPop {
+    0%   { opacity: 0; transform: translate(var(--fromX, 0), var(--fromY, 0)) rotate(var(--fromR, 0deg)) scale(0.4); }
+    100% { opacity: 1; transform: translate(0, 0) rotate(var(--r, 0deg)) scale(1); }
+  }
+  @keyframes itemFloat {
+    0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); }
+    50%      { transform: rotate(var(--r, 0deg)) translateY(-12px); }
+  }
+  /* positions + trajectoires — 10 objets d'origine, +1/3 de taille, mieux répartis */
+  .hi-1  { top: 3%;  left: 3%;   width: 147px; --fromX: -180px; --fromY: -100px; --fromR: -40deg; --r: -8deg;  animation-delay: 0.10s, 1.0s; }  /* blazer marron */
+  .hi-2  { bottom: 4%; right: 3%; width: 160px; --fromX: 200px; --fromY: 130px;  --fromR: 35deg;  --r: 6deg;   animation-delay: 0.22s, 1.2s; }  /* blazer gris */
+  .hi-3  { top: 38%; left: 1%;   width: 133px; --fromX: -200px; --fromY: 40px;   --fromR: -25deg; --r: -5deg;  animation-delay: 0.34s, 1.4s; }  /* sac filet */
+  .hi-4  { top: 2%;  right: 4%;  width: 127px; --fromX: 190px;  --fromY: -100px; --fromR: 30deg;  --r: 7deg;   animation-delay: 0.46s, 1.6s; }  /* bomber beige */
+  .hi-5  { bottom: 4%; left: 6%; width: 113px; --fromX: -150px; --fromY: 140px;  --fromR: -35deg; --r: -6deg;  animation-delay: 0.58s, 1.8s; }  /* ceinture ovale */
+  .hi-6  { top: 40%; right: 2%;  width: 120px; --fromX: 180px;  --fromY: 60px;   --fromR: 40deg;  --r: 8deg;   animation-delay: 0.70s, 2.0s; }  /* sac noir bambou */
+  /* Derrière le texte — effet collage éditorial */
+  .hi-7  { top: 16%; left: 22%;  width: 100px; --fromX: -120px; --fromY: -80px;  --fromR: -30deg; --r: 5deg;   animation-delay: 0.82s, 2.2s; }  /* sandales dorées */
+  .hi-8  { bottom: 24%; left: 19%; width: 93px; --fromX: -110px; --fromY: 100px;  --fromR: -20deg; --r: -7deg;  animation-delay: 0.94s, 2.4s; }  /* ceinture camel */
+  .hi-9  { bottom: 24%; right: 19%; width: 87px; --fromX: 100px; --fromY: 110px;  --fromR: 25deg;  --r: 4deg;   animation-delay: 1.06s, 2.6s; }  /* escarpins camel */
+  .hi-10 { top: 17%; right: 22%; width: 96px;  --fromX: 130px;  --fromY: -90px;  --fromR: 28deg;  --r: -5deg;  animation-delay: 1.18s, 2.8s; }  /* sac bleu */
+  @media (max-width: 900px) {
+    .hi-7, .hi-8, .hi-9, .hi-10 { display: none; }
+    .hero-items img { width: 85px !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-items img { animation: none; opacity: 1; transform: rotate(var(--r, 0deg)); }
+  }
+
+  /* CTA fermé hors période d'inscription */
+  .btn.btn-closed {
+    background: #d8d2c6 !important;
+    color: #8a8378 !important;
+    text-decoration: line-through;
+    pointer-events: none;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .cta-notice {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--accent-dark);
+    font-weight: 600;
+  }
+  .hero .season-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 4px; color: var(--accent);
+    text-transform: uppercase; font-weight: 600;
+    padding: 8px 20px; border: 1px solid var(--accent);
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 8vw, 88px); font-weight: 500;
+    line-height: 1.05; letter-spacing: -1px;
+    color: var(--dark); margin-bottom: 24px;
+  }
+  .hero .subtitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-style: italic; color: var(--muted);
+    max-width: 640px; margin: 0 auto 48px;
+    line-height: 1.4;
+  }
+  .hero-info {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 0; border-top: 1px solid #f0ebe2; border-bottom: 1px solid #f0ebe2;
+  }
+  .hero-info div { text-align: center; }
+  .hero-info .label {
+    font-size: 10px; letter-spacing: 2px; color: var(--muted);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .hero-info .value {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; color: var(--dark); font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .hero-info { grid-template-columns: 1fr; gap: 20px; padding: 24px 0; }
+  }
+
+  /* BUTTON */
+  .btn {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 20px 48px; text-decoration: none;
+    font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    border-radius: 2px; transition: all 0.25s ease;
+    border: none; cursor: pointer;
+  }
+  .btn:hover {
+    background: var(--accent-dark); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201, 169, 110, 0.35);
+  }
+  .btn-secondary {
+    background: transparent; color: var(--dark);
+    border: 1px solid var(--dark); padding: 18px 40px;
+  }
+  .btn-secondary:hover { background: var(--dark); color: #fff; }
+
+  /* SECTIONS */
+  section { padding: 80px 0; }
+  section.alt { background: var(--cream); }
+
+  .section-tag {
+    font-size: 11px; letter-spacing: 3px; color: var(--accent);
+    text-transform: uppercase; font-weight: 600;
+    text-align: center; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 5vw, 48px); font-weight: 500;
+    line-height: 1.15; color: var(--dark);
+    text-align: center; margin-bottom: 48px;
+  }
+
+  /* PROBLEM CARDS */
+  .problem-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-bottom: 40px;
+  }
+  .problem-card {
+    background: #fff; padding: 32px 28px;
+    border-left: 3px solid var(--accent);
+  }
+  .problem-card .quote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--dark);
+    line-height: 1.35; margin-bottom: 12px;
+  }
+  .problem-card p {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+  }
+  .stat-block {
+    text-align: center; margin-top: 24px;
+    font-size: 15px; color: var(--muted); font-style: italic;
+  }
+  .stat-block strong {
+    color: var(--dark); font-style: normal;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px;
+  }
+  @media (max-width: 800px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+
+  /* CONCEPT */
+  .concept-text {
+    text-align: center;
+    font-size: 18px; line-height: 1.7; color: var(--text);
+    margin-bottom: 32px;
+  }
+  .concept-text strong { color: var(--dark); }
+  .concept-features {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 32px;
+    margin-top: 48px;
+  }
+  .concept-feature { text-align: center; }
+  .concept-feature .icon {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 44px; color: var(--accent); line-height: 1;
+    margin-bottom: 12px;
+  }
+  .concept-feature h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .concept-feature p {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+  }
+  @media (max-width: 800px) {
+    .concept-features { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* PROGRAM */
+  .program-week {
+    display: grid; grid-template-columns: 240px 1fr; gap: 40px;
+    padding: 40px 0; border-bottom: 1px solid #e5ddd0;
+  }
+  .program-week:last-child { border-bottom: none; }
+  .program-week .week-label {
+    text-align: left;
+  }
+  .program-week .week-number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 44px; font-weight: 500; color: var(--accent);
+    line-height: 1;
+  }
+  .program-week .week-dates {
+    font-size: 12px; letter-spacing: 2px; color: var(--muted);
+    text-transform: uppercase; margin-top: 6px;
+  }
+  .program-week h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px; font-weight: 500;
+    color: var(--dark); margin-bottom: 16px;
+  }
+  .program-week ul { list-style: none; padding: 0; }
+  .program-week ul li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    color: var(--text); font-size: 15px;
+  }
+  .program-week ul li::before {
+    content: "—"; color: var(--accent);
+    position: absolute; left: 0;
+  }
+  @media (max-width: 700px) {
+    .program-week { grid-template-columns: 1fr; gap: 16px; }
+    .program-week .week-number { font-size: 32px; }
+  }
+
+  /* WHAT YOU GET */
+  .receive-list {
+    max-width: 640px; margin: 0 auto;
+    padding: 40px; background: #fff; border: 1px solid #e5ddd0;
+  }
+  .receive-list ul { list-style: none; }
+  .receive-list ul li {
+    padding: 16px 0 16px 40px;
+    position: relative;
+    font-size: 16px; color: var(--text);
+    border-bottom: 1px solid #f0ebe2;
+  }
+  .receive-list ul li:last-child { border-bottom: none; }
+  .receive-list ul li::before {
+    content: "✓"; color: var(--accent);
+    position: absolute; left: 0; top: 14px;
+    font-size: 22px; font-weight: 500;
+  }
+  .receive-list ul li strong {
+    color: var(--dark); font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; font-weight: 500; display: block; margin-bottom: 4px;
+  }
+
+  /* FOR WHOM */
+  .for-whom {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    max-width: 800px; margin: 0 auto;
+  }
+  .for-whom > div {
+    padding: 32px 28px; background: #fff;
+  }
+  .for-whom h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-weight: 500; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid #f0ebe2;
+  }
+  .for-whom .yes h3 { color: var(--accent); }
+  .for-whom .no h3 { color: var(--muted); }
+  .for-whom ul { list-style: none; }
+  .for-whom ul li {
+    padding: 8px 0 8px 28px; position: relative;
+    font-size: 14px; line-height: 1.6; color: var(--text);
+  }
+  .for-whom .yes ul li::before {
+    content: "✓"; color: var(--accent);
+    position: absolute; left: 0; top: 6px; font-size: 16px; font-weight: 600;
+  }
+  .for-whom .no ul li::before {
+    content: "×"; color: var(--muted);
+    position: absolute; left: 4px; top: 4px; font-size: 20px;
+  }
+  @media (max-width: 700px) { .for-whom { grid-template-columns: 1fr; } }
+
+  /* ANNA */
+  .about-anna {
+    max-width: 720px; margin: 0 auto; text-align: center;
+  }
+  .about-anna p {
+    font-size: 17px; line-height: 1.75; color: var(--text);
+    margin-bottom: 20px;
+  }
+  .about-anna p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 56px; float: left; line-height: 0.9;
+    padding: 8px 12px 0 0; color: var(--accent);
+  }
+  .anna-link {
+    display: inline-block; margin-top: 16px;
+    color: var(--accent); text-decoration: none; font-size: 14px;
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+  }
+
+  /* PRICE */
+  .price-card {
+    max-width: 560px; margin: 0 auto;
+    background: #fff; padding: 56px 48px; text-align: center;
+    border: 2px solid var(--accent); position: relative;
+  }
+  .price-card::before {
+    content: "OFFRE VESTIAIRE D'AUTOMNE";
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff;
+    padding: 4px 20px; font-size: 10px; letter-spacing: 3px; font-weight: 600;
+  }
+  .price-card .price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 88px; font-weight: 500; color: var(--dark);
+    line-height: 1; margin: 24px 0 8px;
+  }
+  .price-card .price-detail {
+    font-size: 14px; color: var(--muted); margin-bottom: 32px;
+  }
+  .price-argument {
+    background: var(--cream); padding: 20px 24px; margin: 24px 0;
+    font-size: 14px; color: var(--text); line-height: 1.6;
+    border-left: 3px solid var(--accent); text-align: left;
+  }
+  .price-argument strong { color: var(--dark); }
+  .price-card .btn { display: block; }
+
+  /* COMPARE */
+  .compare-table {
+    max-width: 800px; margin: 0 auto;
+    background: #fff;
+  }
+  .compare-row {
+    display: grid; grid-template-columns: 1fr 100px 1fr 1fr;
+    padding: 16px 20px; border-bottom: 1px solid #f0ebe2;
+    align-items: center;
+  }
+  .compare-row.header {
+    background: var(--dark); color: #fff;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  }
+  .compare-row .highlight {
+    color: var(--accent); font-weight: 600;
+  }
+  .compare-row .txt {
+    font-size: 13px; color: var(--text);
+  }
+  .compare-row .txt strong { color: var(--dark); display: block; margin-bottom: 2px; }
+  @media (max-width: 700px) {
+    .compare-row { grid-template-columns: 1fr; gap: 6px; padding: 20px; }
+    .compare-row.header { display: none; }
+  }
+
+  /* FAQ */
+  .faq-item {
+    background: #fff; padding: 20px 24px; margin-bottom: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .faq-item summary {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-weight: 500; color: var(--dark);
+    cursor: pointer; padding: 4px 0; list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; color: var(--accent); font-size: 24px; font-weight: 400;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+  .faq-item p {
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid #f0ebe2;
+    font-size: 15px; color: var(--text); line-height: 1.7;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    text-align: center; padding: 100px 28px;
+    background: var(--dark); color: #fff;
+  }
+  .final-cta h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 5vw, 48px); font-weight: 500;
+    margin-bottom: 20px; color: #fff;
+  }
+  .final-cta p {
+    color: #ccc; margin-bottom: 40px; font-size: 16px;
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+  .final-cta .btn {
+    background: var(--accent);
+  }
+  .final-cta .next-edition {
+    margin-top: 32px; font-size: 13px; color: #999;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 28px; text-align: center;
+    background: var(--bg); color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 700px) {
+    section { padding: 60px 0; }
+    .hero { padding: 80px 0 70px; }
+    .price-card { padding: 40px 28px; }
+    .price-card .price { font-size: 68px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="back">← Retour au site</a>
+  <a href="/" class="brand">ANNA ATOYAN</a>
+  <div class="tagline">Styliste personnelle</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-items" aria-hidden="true">
+    <img src="chat-items/item01.png" class="hi-1" alt="">   <!-- blazer marron -->
+    <img src="chat-items/item11.png" class="hi-2" alt="">   <!-- blazer gris -->
+    <img src="chat-items/item06.png" class="hi-3" alt="">   <!-- sac filet -->
+    <img src="chat-items/item02.png" class="hi-4" alt="">   <!-- bomber beige -->
+    <img src="chat-items/item13.png" class="hi-5" alt="">   <!-- ceinture ovale -->
+    <img src="chat-items/item04.png" class="hi-6" alt="">   <!-- sac noir bambou -->
+    <img src="chat-items/item03.png" class="hi-7" alt="">   <!-- sandales dorées -->
+    <img src="chat-items/item07.png" class="hi-8" alt="">   <!-- ceinture cuir camel -->
+    <img src="chat-items/item12.png" class="hi-9" alt="">   <!-- escarpins camel -->
+    <img src="chat-items/item09.png" class="hi-10" alt="">  <!-- sac bleu -->
+  </div>
+  <div class="container">
+    <div class="season-tag">Automne 2026 · Édition #1</div>
+    <h1>Le Chat du Style</h1>
+    <p class="subtitle">4 semaines avec une styliste personnelle. Des conseils, des sélections shopping et des essayages — pour construire ta garde-robe d'automne sans te tromper.</p>
+
+    <div class="hero-info">
+      <div>
+        <div class="label">Inscriptions</div>
+        <div class="value">Du 26 août<br>au 4 septembre</div>
+      </div>
+      <div>
+        <div class="label">Canal ouvert</div>
+        <div class="value">Du 5 septembre<br>au 2 octobre</div>
+      </div>
+      <div>
+        <div class="label">Tarif unique</div>
+        <div class="value">35&nbsp;€<br><span style="font-size:12px;color:var(--muted)">non renouvelable</span></div>
+      </div>
+    </div>
+
+    <a href="https://buy.stripe.com/6oU5kFcslexVbzZ9Qs1gs00" class="btn js-buy">Réserver ma place</a>
+    <p class="cta-notice js-cta-notice" style="display:none;"></p>
+    <p style="margin-top:16px; font-size:13px; color:var(--muted);">Places limitées · Paiement sécurisé Stripe</p>
+  </div>
+</section>
+
+<!-- PROBLÈME -->
+<section class="alt">
+  <div class="container">
+    <div class="section-tag">Ça te parle ?</div>
+    <h2 class="section-title">Tu ouvres ton dressing…<br>et tu remets ta valeur sûre. Encore.</h2>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <p class="quote">« J'ai pas le temps de réfléchir, et j'y connais rien en image perso. »</p>
+        <p>Le matin, c'est toujours la même tenue. Pas parce que tu l'aimes — parce que tu n'as pas la charge mentale d'expérimenter.</p>
+      </div>
+      <div class="problem-card">
+        <p class="quote">« Je vois des idées géniales sur Instagram, mais je ne sais pas les transposer sur ma silhouette. »</p>
+        <p>Les looks ne tiennent jamais compte de ta morphologie, de ton budget, de ta vraie vie. Tu restes spectatrice.</p>
+      </div>
+      <div class="problem-card">
+        <p class="quote">« Je perds entre 100 et 300 € par an en vêtements que je ne porte pas. »</p>
+        <p>Achats compulsifs, coups de cœur mal placés, cadeaux à côté. Le budget est là, mais mal investi.</p>
+      </div>
+    </div>
+
+    <div class="stat-block">
+      <strong>78 %</strong> des femmes que j'ai interrogées vivent exactement ça.<br>
+      <em>Tu n'es pas seule — et ce n'est pas une question de goût, mais de méthode.</em>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section>
+  <div class="container-narrow">
+    <div class="section-tag">Le concept</div>
+    <h2 class="section-title">Une styliste dans ton téléphone,<br>pendant 4 semaines</h2>
+
+    <p class="concept-text">
+      Le Chat du Style est un <strong>canal privé sur Instagram</strong> que j'ouvre 4 fois par an, à chaque changement de saison. Pendant 4 semaines, <strong>du lundi au vendredi</strong>, je te partage mes conseils, mes sélections shopping et mes essayages en boutique. Le week-end, je te laisse digérer tranquillement.
+    </p>
+    <p class="concept-text">
+      C'est <strong>l'inverse d'un compte Instagram public</strong> : pas de contenu spectacle, pas de pub cachée. Juste du contenu pratique, honnête, pensé pour être appliqué immédiatement dans ta vie.
+    </p>
+
+    <div class="concept-features">
+      <div class="concept-feature">
+        <div class="icon">✎</div>
+        <h3>Conseils du lundi au vendredi</h3>
+        <p>Un rythme pensé pour progresser sans être envahie. Les week-ends sont à toi.</p>
+      </div>
+      <div class="concept-feature">
+        <div class="icon">◐</div>
+        <h3>Webinaire silhouettes</h3>
+        <p>Au démarrage, un webinaire pour comprendre ce qui te va — avant de parler shopping.</p>
+      </div>
+      <div class="concept-feature">
+        <div class="icon">▷</div>
+        <h3>Essayages commentés</h3>
+        <p>Je vais en boutique pour toi et je te montre en vidéo ce qui vaut vraiment le coup.</p>
+      </div>
+      <div class="concept-feature">
+        <div class="icon">☰</div>
+        <h3>Sélections compilées</h3>
+        <p>Classées par marque ou type de vêtement, dans un fichier consultable à tout moment, avec liens cliquables.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 56px; text-align: center; padding: 32px 28px; background: var(--cream);">
+      <p style="font-size: 11px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; font-weight: 600; margin-bottom: 16px;">Les marques passées en revue</p>
+      <p style="font-size: 15px; line-height: 1.9; color: var(--text);">
+        <strong>Fast fashion</strong> — Zara, H&amp;M, Mango…<br>
+        <strong>Middle</strong> — COS, Arket, &amp; Other Stories, Massimo Dutti…<br>
+        <strong>Premium</strong> — Maje, Sandro, Anine Bing, Sézane…<br>
+        <em style="color: var(--muted);">et une pointe de luxe, en mix.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME / CALENDRIER -->
+<section class="alt">
+  <div class="container">
+    <div class="section-tag">Le programme</div>
+    <h2 class="section-title">Un mois complet,<br>organisé pour toi</h2>
+
+    <p style="text-align:center; max-width:640px; margin:0 auto 40px; font-size:16px; color:var(--text); line-height:1.7;">
+      Le canal démarre par un <strong>webinaire sur les silhouettes</strong> — pour que tu comprennes ce qui te va <em>avant</em> qu'on parle shopping. Ensuite, chaque semaine alterne revues de marques, sélections thématiques et conseils pratiques.
+    </p>
+
+    <!-- CALENDRIER (aperçu — version définitive à venir) -->
+    <style>
+      .calendar-grid {
+        display: grid; grid-template-columns: repeat(5, 1fr);
+        gap: 8px; max-width: 860px; margin: 0 auto 16px;
+      }
+      .cal-cell {
+        background: #fff; padding: 18px 12px; text-align: center;
+        border: 1px solid #e5ddd0; min-height: 92px;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      .cal-cell .cal-type {
+        font-size: 9px; letter-spacing: 2px; color: var(--accent);
+        text-transform: uppercase; font-weight: 600; margin-bottom: 6px;
+      }
+      .cal-cell .cal-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 15px; font-weight: 600; color: var(--dark); line-height: 1.25;
+      }
+      .cal-cell.cal-highlight { background: var(--dark); border-color: var(--dark); }
+      .cal-cell.cal-highlight .cal-title { color: #fff; }
+      .cal-cell.cal-highlight .cal-type { color: var(--accent); }
+      @media (max-width: 720px) {
+        .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+    </style>
+
+    <div class="calendar-grid">
+      <div class="cal-cell cal-highlight"><div class="cal-type">Webinaire</div><div class="cal-title">Les silhouettes : ce qui te va</div></div>
+      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Zara</div></div>
+      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Les basiques d'automne</div></div>
+      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">COS</div></div>
+      <div class="cal-cell"><div class="cal-type">Conseil</div><div class="cal-title">Adapter les tendances à sa morphologie</div></div>
+      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Vestes &amp; trenchs</div></div>
+      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Arket &amp; Other Stories</div></div>
+      <div class="cal-cell"><div class="cal-type">Essayages</div><div class="cal-title">En cabine avec Anna</div></div>
+      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Maje · Sandro · Anine Bing</div></div>
+      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Bottes &amp; chaussures</div></div>
+      <div class="cal-cell"><div class="cal-type">Conseil</div><div class="cal-title">Le layering sans surcharge</div></div>
+      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">H&amp;M · Mango</div></div>
+      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Une pointe de luxe, en mix</div></div>
+      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Sacs &amp; accessoires</div></div>
+      <div class="cal-cell cal-highlight"><div class="cal-type">Fichier récap</div><div class="cal-title">Toutes les sélections, liens cliquables</div></div>
+    </div>
+
+    <p style="text-align:center; font-size:12px; color:var(--muted); font-style:italic;">Aperçu indicatif — le calendrier détaillé est communiqué à l'ouverture du canal.</p>
+  </div>
+</section>
+
+<!-- CE QUE TU RECOIS -->
+<section>
+  <div class="container-narrow">
+    <div class="section-tag">Concrètement</div>
+    <h2 class="section-title">Ce que tu vas recevoir</h2>
+
+    <div class="receive-list">
+      <ul>
+        <li><strong>Des sélections shopping thématiques</strong> 2 par semaine, avec tous les liens — de la fast fashion (Zara, H&amp;M…) au premium (Maje, Sandro, Anine Bing…), et une pointe de luxe.</li>
+        <li><strong>Un webinaire silhouettes au démarrage</strong> Pour comprendre ce qui te va vraiment, avant de te lancer dans le moindre achat.</li>
+        <li><strong>Des vidéos d'essayages</strong> Je vais en boutique pour toi, je te montre ce qui vaut vraiment le coup en cabine.</li>
+        <li><strong>Un fichier récapitulatif consultable</strong> Toutes les sélections compilées au même endroit, avec liens cliquables — pour y revenir quand tu veux.</li>
+        <li><strong>Aucune pub cachée</strong> Je ne suis affiliée à aucune marque. Je te dis ce qui marche, point.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="alt">
+  <div class="container">
+    <div class="section-tag">Est-ce pour toi ?</div>
+    <h2 class="section-title">Pour qui c'est fait — et pour qui non</h2>
+
+    <div class="for-whom">
+      <div class="yes">
+        <h3>Fait pour toi si…</h3>
+        <ul>
+          <li>Tu as l'impression de tourner en rond dans ton dressing malgré des vêtements en pagaille</li>
+          <li>Tu veux des conseils qui tiennent compte de ta morphologie et de ta vraie vie</li>
+          <li>Tu passes déjà du temps sur Instagram et Pinterest sans y trouver ton compte</li>
+          <li>Tu veux tester ma méthode sans t'engager sur un accompagnement à 400 €</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>Pas fait pour toi si…</h3>
+        <ul>
+          <li>Tu veux un accompagnement 100 % personnalisé sur mesure (le Chat est collectif)</li>
+          <li>Tu attends qu'on te dise quoi porter sans effort de ta part</li>
+          <li>Tu n'as pas de compte Instagram (le canal se passe uniquement là)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNA -->
+<section>
+  <div class="container-narrow">
+    <div class="section-tag">Qui suis-je ?</div>
+    <h2 class="section-title">Anna Atoyan</h2>
+
+    <div class="about-anna">
+      <p>Styliste personnelle depuis plus d'un an, j'accompagne des femmes de tous horizons — jeunes actives, mamans, femmes en transition — à retrouver un style qui leur ressemble vraiment.</p>
+      <p>Ma méthode : pas de style imposé, pas de règles rigides. On part de qui tu es, de ta vie, de ta morphologie — et on construit à partir de là. Ce que je crois profondément, c'est qu'on n'a pas besoin de plus de vêtements. On a besoin des <em>bons</em>.</p>
+      <p>Le Chat du Style, c'est la façon la plus accessible de rentrer dans ma méthode. Sans engagement lourd, sans investissement démesuré. Juste 4 semaines pour tester si on est faites pour travailler ensemble.</p>
+      <a href="https://anna-atoyan.com/#approche" class="anna-link">Découvrir mon approche complète →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRIX -->
+<section class="alt">
+  <div class="container-narrow">
+    <div class="section-tag">Tarif</div>
+    <h2 class="section-title">Un seul prix, tout compris</h2>
+
+    <div class="price-card">
+      <div class="price">35&nbsp;€</div>
+      <div class="price-detail">4 semaines d'accès au canal privé · Non renouvelable</div>
+
+      <div class="price-argument">
+        <strong>Pour te donner un ordre d'idée :</strong> les femmes que j'ai interrogées estiment perdre <strong>entre 100 et 300 € par an</strong> en vêtements achetés mais jamais portés. Le Chat du Style coûte moins qu'un mauvais achat — et t'évite les prochains.
+      </div>
+
+      <a href="https://buy.stripe.com/6oU5kFcslexVbzZ9Qs1gs00" class="btn js-buy">Réserver ma place — 35&nbsp;€</a>
+      <p class="cta-notice js-cta-notice" style="display:none;"></p>
+      <p style="margin-top:16px; font-size:12px; color:var(--muted);">Paiement sécurisé Stripe · Places limitées</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="container-narrow">
+    <div class="section-tag">Questions fréquentes</div>
+    <h2 class="section-title">Tout ce que tu veux savoir</h2>
+
+    <details class="faq-item">
+      <summary>À quel rythme vais-je recevoir du contenu ?</summary>
+      <p>Je communique du lundi au vendredi. Le week-end, pas de messages — je te laisse tranquillement digérer les infos de la semaine, essayer, réfléchir. Le but est de progresser sans que ça devienne une charge mentale de plus.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Comment ça se passe si j'ai une question ?</summary>
+      <p>Le canal est en mode diffusion : je partage, tu reçois. Si tu as une question, tu peux m'écrire en message privé sur Instagram.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Et si je n'ai pas un gros budget vêtements ?</summary>
+      <p>Le Chat du Style s'adresse à toi. Je sélectionne dans tous les budgets — de la fast fashion (Zara, H&amp;M…) au premium (Maje, Sandro…), avec une pointe de luxe en mix. Mon but n'est pas de te faire dépenser plus, mais de t'aider à mieux dépenser ce que tu as déjà prévu.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Est-ce que le contenu sera adapté à ma morphologie ?</summary>
+      <p>Oui — c'est le cœur du problème que j'ai identifié dans mon audience. Le canal démarre par un webinaire sur les silhouettes, justement pour que tu saches ce qui te va avant de te lancer. Et les sélections sont pensées pour couvrir différentes morphologies.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Que se passe-t-il à la fin des 4 semaines ?</summary>
+      <p>Le partage de contenu s'arrête le 2 octobre, mais le canal reste ouvert pendant 3 mois. Tu peux donc revenir tranquillement sur toutes les sélections, les vidéos et le fichier récapitulatif — le temps de faire tes achats à ton rythme.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Puis-je m'inscrire après le 4 septembre ?</summary>
+      <p>Non, les inscriptions ferment définitivement à cette date. Si tu rates cette édition, abonne-toi à mon compte Instagram <a href="https://www.instagram.com/anna_anayan" target="_blank" rel="noopener" style="color:var(--accent)">@anna_anayan</a> pour être tenue informée de la date d'ouverture de la prochaine édition.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Où se passe exactement le canal ?</summary>
+      <p>Sur Instagram, via la fonctionnalité « Canal privé ». Après ton inscription, tu seras invitée directement via Instagram avant le 5 septembre. Tu acceptes l'invitation, et tu es dans le canal — tout se passe dans l'app que tu utilises déjà.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Est-ce que je vais devoir me montrer ou parler ?</summary>
+      <p>Pas du tout. C'est un format diffusion : tu reçois mes messages, tu absorbes, tu appliques. Rien à publier, rien à dire, aucune pression.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>4 semaines pour changer ton rapport<br>à ton dressing</h2>
+  <p>Places limitées · Inscriptions du 26 août au 4 septembre · Canal ouvert du 5 septembre au 2 octobre 2026</p>
+  <a href="https://buy.stripe.com/6oU5kFcslexVbzZ9Qs1gs00" class="btn js-buy">Réserver ma place — 35 €</a>
+  <p class="cta-notice js-cta-notice" style="display:none; color:#c9a96e;"></p>
+  <p class="next-edition">Prochaine édition : Vestiaire d'Hiver, décembre 2026</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Anna Atoyan — Styliste personnelle · <a href="/cgv.html">CGV</a> · <a href="/">Retour au site</a></p>
+</footer>
+
+<script>
+// ============================================================
+// Verrouillage des CTA selon la période d'inscription
+// Inscriptions ouvertes : du 26/08/2026 00:00 au 04/09/2026 23:59 (heure de Paris)
+// Pour la prochaine édition : modifier ces 2 dates + le texte des messages.
+// ============================================================
+(function(){
+  var OPEN  = new Date('2026-08-26T00:00:00+02:00');
+  var CLOSE = new Date('2026-09-04T23:59:59+02:00');
+  var now = new Date();
+
+  var state = 'open';
+  if (now < OPEN) state = 'before';
+  else if (now > CLOSE) state = 'closed';
+
+  if (state === 'open') return; // rien à faire, les boutons fonctionnent
+
+  document.querySelectorAll('.js-buy').forEach(function(btn){
+    btn.classList.add('btn-closed');
+    btn.removeAttribute('href');
+    btn.addEventListener('click', function(e){ e.preventDefault(); });
+  });
+
+  document.querySelectorAll('.js-cta-notice').forEach(function(el){
+    el.style.display = 'block';
+    if (state === 'before') {
+      el.textContent = 'Les inscriptions ouvrent le 26 août — encore un peu de patience !';
+    } else {
+      el.innerHTML = 'Les inscriptions sont fermées. Suis <a href="https://www.instagram.com/anna_anayan" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">@anna_anayan</a> sur Instagram pour être informée de la prochaine édition.';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
