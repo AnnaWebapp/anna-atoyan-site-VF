@@ -628,52 +628,84 @@
       Le canal démarre par un <strong>webinaire sur les silhouettes</strong> — pour que tu comprennes ce qui te va <em>avant</em> qu'on parle shopping. Ensuite, chaque semaine alterne revues de marques, sélections thématiques et conseils pratiques.
     </p>
 
-    <!-- CALENDRIER (aperçu — version définitive à venir) -->
+    <!-- CALENDRIER — programme semaine par semaine (10 sept -> 8 oct) -->
     <style>
-      .calendar-grid {
-        display: grid; grid-template-columns: repeat(5, 1fr);
-        gap: 8px; max-width: 860px; margin: 0 auto 16px;
-      }
-      .cal-cell {
-        background: #fff; padding: 18px 12px; text-align: center;
-        border: 1px solid #e5ddd0; min-height: 92px;
-        display: flex; flex-direction: column; justify-content: center;
-      }
-      .cal-cell .cal-type {
-        font-size: 9px; letter-spacing: 2px; color: var(--accent);
-        text-transform: uppercase; font-weight: 600; margin-bottom: 6px;
-      }
-      .cal-cell .cal-title {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 15px; font-weight: 600; color: var(--dark); line-height: 1.25;
-      }
-      .cal-cell.cal-highlight { background: var(--dark); border-color: var(--dark); }
-      .cal-cell.cal-highlight .cal-title { color: #fff; }
-      .cal-cell.cal-highlight .cal-type { color: var(--accent); }
-      @media (max-width: 720px) {
-        .calendar-grid { grid-template-columns: repeat(2, 1fr); }
-      }
+      .prog { max-width: 760px; margin: 0 auto 16px; }
+      .prog-legend { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; font-size:12px; color:var(--text); margin-bottom:22px; }
+      .prog-legend span::before { content:''; display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; }
+      .prog-legend .lg-revue::before { background: var(--accent); }
+      .prog-legend .lg-sel::before { background: #7d8c6f; }
+      .prog-legend .lg-fort::before { background: var(--dark); }
+      .prog-week { border-top: 1px solid #e5ddd0; padding: 16px 0; }
+      .prog-week:last-child { border-bottom: 1px solid #e5ddd0; }
+      .prog-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+      .prog-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip { display:inline-block; background:#fff; border:1px solid #d9c9a8; color:var(--dark); font-size:13.5px; padding:8px 15px; border-radius:999px; line-height:1.3; }
+      .chip .d { color: var(--accent); font-weight: 600; }
+      .chip-sel { background:#eef0e9; border-color:#c6cfb9; color:#3d4534; }
+      .chip-sel .d { color:#7d8c6f; }
+      .chip-hl { background: var(--dark); border-color: var(--dark); color:#fff; }
+      .chip-hl .d { color: var(--accent); }
     </style>
 
-    <div class="calendar-grid">
-      <div class="cal-cell cal-highlight"><div class="cal-type">Webinaire</div><div class="cal-title">Les silhouettes : ce qui te va</div></div>
-      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Zara</div></div>
-      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Les basiques d'automne</div></div>
-      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">COS</div></div>
-      <div class="cal-cell"><div class="cal-type">Conseil</div><div class="cal-title">Adapter les tendances à sa morphologie</div></div>
-      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Vestes &amp; trenchs</div></div>
-      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Arket &amp; Other Stories</div></div>
-      <div class="cal-cell"><div class="cal-type">Essayages</div><div class="cal-title">En cabine avec Anna</div></div>
-      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">Maje · Sandro · Anine Bing</div></div>
-      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Bottes &amp; chaussures</div></div>
-      <div class="cal-cell"><div class="cal-type">Conseil</div><div class="cal-title">Le layering sans surcharge</div></div>
-      <div class="cal-cell"><div class="cal-type">Revue</div><div class="cal-title">H&amp;M · Mango</div></div>
-      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Une pointe de luxe, en mix</div></div>
-      <div class="cal-cell"><div class="cal-type">Sélection</div><div class="cal-title">Sacs &amp; accessoires</div></div>
-      <div class="cal-cell cal-highlight"><div class="cal-type">Fichier récap</div><div class="cal-title">Toutes les sélections, liens cliquables</div></div>
+    <div class="prog">
+      <div class="prog-legend">
+        <span class="lg-revue">Revue de marque</span>
+        <span class="lg-sel">Sélection thématique</span>
+        <span class="lg-fort">Temps fort</span>
+      </div>
+
+      <div class="prog-week">
+        <div class="prog-label">Semaine 1 · 10 – 11 septembre</div>
+        <div class="prog-chips">
+          <span class="chip chip-hl"><span class="d">jeu 10</span> · Webinaire silhouettes</span>
+          <span class="chip"><span class="d">ven 11</span> · Zara — part 1</span>
+        </div>
+      </div>
+
+      <div class="prog-week">
+        <div class="prog-label">Semaine 2 · 14 – 18 septembre</div>
+        <div class="prog-chips">
+          <span class="chip"><span class="d">lun 14</span> · Massimo Dutti — part 1</span>
+          <span class="chip chip-sel"><span class="d">mer 16</span> · Sélection chaussures</span>
+          <span class="chip"><span class="d">jeu 17</span> · Maje</span>
+          <span class="chip"><span class="d">ven 18</span> · Sandro</span>
+        </div>
+      </div>
+
+      <div class="prog-week">
+        <div class="prog-label">Semaine 3 · 21 – 25 septembre</div>
+        <div class="prog-chips">
+          <span class="chip"><span class="d">lun 21</span> · COS</span>
+          <span class="chip"><span class="d">mar 22</span> · Arket</span>
+          <span class="chip"><span class="d">mer 23</span> · &amp; Other Stories</span>
+          <span class="chip chip-sel"><span class="d">jeu 24</span> · Sélection manteaux</span>
+          <span class="chip"><span class="d">ven 25</span> · Mix premium</span>
+        </div>
+      </div>
+
+      <div class="prog-week">
+        <div class="prog-label">Semaine 4 · 28 septembre – 1er octobre</div>
+        <div class="prog-chips">
+          <span class="chip"><span class="d">lun 28</span> · H&amp;M</span>
+          <span class="chip"><span class="d">mar 29</span> · Mango</span>
+          <span class="chip"><span class="d">mer 30</span> · Zara — part 2</span>
+          <span class="chip chip-sel"><span class="d">jeu 1er</span> · Sélection accessoires</span>
+        </div>
+      </div>
+
+      <div class="prog-week">
+        <div class="prog-label">Semaine 5 · 5 – 8 octobre</div>
+        <div class="prog-chips">
+          <span class="chip"><span class="d">lun 5</span> · Massimo Dutti — part 2</span>
+          <span class="chip"><span class="d">mar 6</span> · Claudie Pierlot</span>
+          <span class="chip chip-sel"><span class="d">mer 7</span> · Sélection accessoires</span>
+          <span class="chip chip-hl"><span class="d">jeu 8</span> · Fichier récap — fin du canal</span>
+        </div>
+      </div>
     </div>
 
-    <p style="text-align:center; font-size:12px; color:var(--muted); font-style:italic;">Aperçu indicatif — le calendrier détaillé est communiqué à l'ouverture du canal.</p>
+    <p style="text-align:center; font-size:12px; color:var(--muted); font-style:italic;">Calendrier indicatif, possibles évolutions.</p>
   </div>
 </section>
 
